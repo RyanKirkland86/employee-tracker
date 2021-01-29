@@ -1,4 +1,4 @@
-# Note Taker Using Express.js
+# Employee Database Tracker
 
 ## Project:
 
