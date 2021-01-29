@@ -13,6 +13,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) throw err;
+    console.log()
     runSearch();
 });
 
@@ -54,7 +55,7 @@ function runsearch() {
                 addEmployee();
                 break;
             case "Remove Employee":
-                removeEmployee()
+                removeEmployee();
                 break;
             case "Update Employee Role":
                 updateEmployeeRole();
@@ -85,4 +86,56 @@ function runsearch() {
                 break;
         }
     })
+};
+
+function viewAllEmployees() {
+
+};
+
+function viewAllEmployeesByDepartment() {
+
+};
+
+function viewAllEmployeesByManager() {
+
+};
+
+function addEmployee() {
+
+};
+
+function removeEmployee() {
+
+};
+
+function updateEmployeeRole() {
+
+};
+
+function updateEmployeeManager() {
+
+};
+
+function viewAllRoles() {
+
+};
+
+function addRole() {
+
+};
+
+function removeRole() {
+
+};
+
+function viewAllDepartments() {
+
+};
+
+function addDepartment() {
+
+};
+
+function removeDepartment() {
+
 };
