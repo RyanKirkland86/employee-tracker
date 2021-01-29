@@ -56,9 +56,6 @@ function runsearch() {
             case "Remove Employee":
 
                 break;
-            case "Remove Employee":
-
-                break;
             case "Update Employee Role":
 
                 break;
