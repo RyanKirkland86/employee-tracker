@@ -10,3 +10,4 @@ var connection = mysql.createConnection({
     password: "password",
     database: "employees_db"
 });
+
