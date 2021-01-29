@@ -5,7 +5,7 @@ var conTable = require("console.table");
 
 var connection = mysql.createConnection({
     host: "localhost",
-    port: 3600,
+    port: 3306,
     user: "root",
     password: "password",
     database: "employees_db"
@@ -13,11 +13,10 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) throw err;
-    console.log()
     runSearch();
 });
 
-function runsearch() {
+function runSearch() {
     inquirer
     .prompt({
         name: "choice",
