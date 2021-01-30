@@ -82,11 +82,29 @@ function viewAllRoles() {
 };
 
 function viewAllEmployees() {
-
+    var query = "SELECT employees.first_name, employees.last_name, roles.Title, roles.Salary FROM employees INNER JOIN roles ON (roles.id = employees.role_id) ORDER BY employees.id";
+    connection.query(query, function(err, res) {
+        if (err) throw err;
+        console.table(res);
+        runSearch();
+    })
 };
 
 function addDepartment() {
-
+    inquirer
+    .prompt({
+        type: "input",
+        message: "What Department would you like to add?",
+        name: "name"
+    })
+    .then((answer) => {
+        connection.query("INSERT INTO departments SET ?", { Department: answer.name }, function(err, res) {
+            if (err) throw err;
+            console.log(res.affectedRows + " Department has been added to the list");
+            console.log("============================");
+            viewAllDepartments();
+        })
+    })
 };
 
 function addRole() {
