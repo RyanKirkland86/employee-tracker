@@ -24,10 +24,10 @@ function runSearch() {
         message: "What would you like to do?",
         choices: [
             "View All Departments",
-            "Add Department",
             "View All Roles",
-            "Add Role",
             "View All Employees",
+            "Add Department",
+            "Add Role",
             "Add Employee",
             "Update Employee Role",
             "Quit"
@@ -38,17 +38,17 @@ function runSearch() {
             case "View All Departments":
                 viewAllDepartments();
                 break;
-            case "Add Department":
-                addDepartment();
-                break;
             case "View All Roles":
                 viewAllRoles();
                 break;
-            case "Add Role":
-                addRole();
-                break;
             case "View All Employees":
                 viewAllEmployees();
+                break;
+            case "Add Department":
+                addDepartment();
+                break;
+            case "Add Role":
+                addRole();
                 break;
             case "Add Employee":
                 addEmployee();
@@ -64,26 +64,32 @@ function runSearch() {
 };
 
 function viewAllDepartments() {
-    connection.query("SELECT * FROM department", function(err, res) {
+    connection.query("SELECT * FROM departments", function(err, res) {
         if (err) throw err;
         console.table(res);
         runSearch();
     })
 };
 
+function viewAllRoles() {
+    connection.query(
+        "SELECT departments.Department, roles.Title, roles.Salary FROM roles INNER JOIN departments ON (departments.id = roles.department_id) ORDER BY departments.Department",
+        function(err, res) {
+            if (err) throw err;
+            console.table(res);
+            runSearch();
+        })
+};
+
+function viewAllEmployees() {
+
+};
+
 function addDepartment() {
 
 };
 
-function viewAllRoles() {
-
-};
-
 function addRole() {
-
-};
-
-function viewAllEmployees() {
 
 };
 
