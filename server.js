@@ -53,9 +53,9 @@ function runSearch() {
             case "Add Employee":
                 addEmployee();
                 break;
-            case "Update Employee Role":
-                updateEmployeeRole();
-                break;
+            // case "Update Employee Role":
+            //     updateEmployeeRole();
+            //     break;
             case "Quit":
                 connection.end();
                 break;
@@ -156,21 +156,36 @@ function addEmployee() {
         },
         {
             type: "number",
-            message: "What is the number of the employee's role?",
+            message: "What is the number of the employee's role? 1)HR Director 2)HR Representative 3)Engineering Manager 4)Web Developer 5)PR Director 6)Research Analyst 7)Sales Director 8)Direct Sales Representative",
             name: "roleId"
         },
-        {
-            type: "number",
-            message: "What is the number of the employee's manager ID?",
-            name: "managerId"
-        }
+        // {
+        //     type: "number",
+        //     message: "What is the number of the employee's manager ID? 1-4",
+        //     name: "managerId"
+        // }
     ])
-
+        .then((answer) => {
+            var query = ("INSERT INTO employees SET ?");
+            connection.query(query, 
+                {
+                    first_name: answer.firstName,
+                    last_name: answer.lastName,
+                    role_id: answer.roleId,
+                    // Manager: answer.managerId
+                },
+                function(err, res) {
+                    if (err) throw err;
+                    console.log(res.affectedRows + " Employee added to the list");
+                    console.log("============================");
+                    viewAllEmployees();
+                })
+        })
 };
 
-function updateEmployeeRole() {
+// function updateEmployeeRole() {
 
-};
+// };
 
 
 /* FUTURE DEVELOPMENT
