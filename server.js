@@ -23,44 +23,23 @@ function runSearch() {
         type: "list",
         message: "What would you like to do?",
         choices: [
-            "View All Employees",
-            "View All Employees By Department",
-            "View All Employees By Manager",
-            "Add Employee",
-            "Remove Employee",
-            "Update Employee Role",
-            "Update Employee Manager",
-            "View All Roles",
-            "Add Role",
-            "Remove Role",
             "View All Departments",
             "Add Department",
-            "Remove Department",
+            "View All Roles",
+            "Add Role",
+            "View All Employees",
+            "Add Employee",
+            "Update Employee Role",
             "Quit"
         ]
     })
     .then((answer) => {
         switch (answer.choice) {
-            case "View All Employees":
-                viewAllEmployees();
+            case "View All Departments":
+                viewAllDepartments();
                 break;
-            case "View All Employees By Department":
-                viewAllEmployeesByDepartment();
-                break;
-            case "View All Employees By Manager":
-                viewAllEmployeesByManager();
-                break;
-            case "Add Employee":
-                addEmployee();
-                break;
-            case "Remove Employee":
-                removeEmployee();
-                break;
-            case "Update Employee Role":
-                updateEmployeeRole();
-                break;
-            case "Update Employee Manager":
-                updateEmployeeManager();
+            case "Add Department":
+                addDepartment();
                 break;
             case "View All Roles":
                 viewAllRoles();
@@ -68,17 +47,14 @@ function runSearch() {
             case "Add Role":
                 addRole();
                 break;
-            case "Remove Role":
-                removeRole();
+            case "View All Employees":
+                viewAllEmployees();
                 break;
-            case "View All Departments":
-                viewAllDepartments();
+            case "Add Employee":
+                addEmployee();
                 break;
-            case "Add Department":
-                addDepartment();
-                break;
-            case "Remove Department":
-                removeDepartment();
+            case "Update Employee Role":
+                updateEmployeeRole();
                 break;
             case "Quit":
                 connection.end();
@@ -87,31 +63,11 @@ function runSearch() {
     })
 };
 
-function viewAllEmployees() {
+function viewAllDepartments() {
 
 };
 
-function viewAllEmployeesByDepartment() {
-
-};
-
-function viewAllEmployeesByManager() {
-
-};
-
-function addEmployee() {
-
-};
-
-function removeEmployee() {
-
-};
-
-function updateEmployeeRole() {
-
-};
-
-function updateEmployeeManager() {
+function addDepartment() {
 
 };
 
@@ -123,18 +79,42 @@ function addRole() {
 
 };
 
+function viewAllEmployees() {
+
+};
+
+function addEmployee() {
+
+};
+
+function updateEmployeeRole() {
+
+};
+
+
+/* FUTURE DEVELOPMENT
+
+function viewAllEmployeesByDepartment() {
+
+};
+
+function viewAllEmployeesByManager() {
+
+};
+
+function removeEmployee() {
+
+};
+
+function updateEmployeeManager() {
+
+};
+
 function removeRole() {
-
-};
-
-function viewAllDepartments() {
-
-};
-
-function addDepartment() {
 
 };
 
 function removeDepartment() {
 
 };
+*/
