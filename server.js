@@ -108,10 +108,63 @@ function addDepartment() {
 };
 
 function addRole() {
-
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            message: "What is the Title of the role you would like to add?",
+            name: "title"
+        },
+        {
+            type: "input",
+            message: "What is the Salary of the role you would like to add?",
+            name: "salary"
+        },
+        {
+            type: "number",
+            message: "Enter the number of the department. 1)Human Resources 2)Engineering 3)Marketing 4)Sales",
+            name: "depId"
+        }])
+        .then((answer) => {
+            var query = ("INSERT INTO roles SET ?");
+            connection.query(query,
+                {
+                    Title: answer.title,
+                    Salary: answer.salary,
+                    department_id: answer.depId
+                },
+                function(err, res) {
+                    if(err) throw err;
+                    console.log(res.affectedRows + " Role has been added to the list");
+                    console.log("============================");
+                    viewAllRoles();
+                })
+        })
 };
 
 function addEmployee() {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is the employee's first name?",
+            name: "firstName"
+        },
+        {
+            type: "input",
+            message: "What is the employee's last name?",
+            name: "lastName"
+        },
+        {
+            type: "number",
+            message: "What is the number of the employee's role?",
+            name: "roleId"
+        },
+        {
+            type: "number",
+            message: "What is the number of the employee's manager ID?",
+            name: "managerId"
+        }
+    ])
 
 };
 
