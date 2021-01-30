@@ -13,6 +13,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) throw err;
+    console.log("WELCOME TO EMPLOYEE MANAGER!!!")
     runSearch();
 });
 
@@ -29,7 +30,7 @@ function runSearch() {
             "Add Department",
             "Add Role",
             "Add Employee",
-            "Update Employee Role",
+            // "Update Employee Role",
             "Quit"
         ]
     })
