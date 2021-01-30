@@ -1,7 +1,7 @@
 {
   "name": "employee-tracker",
   "version": "1.0.0",
-  "description": "## Project:",
+  "description": "This is a command line application that allows a business owner to view and manage the departments, roles, and employees of their company so that they can better organize and plan their business.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
